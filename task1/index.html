@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeathNote</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        customBg: '#F8FAFC',
+                        primary: '#8B0000',
+                        primaryHover: '#5C0000',
+                        heading: '#0F172A',
+                        bodyText: '#475569',
+                        cardBg: '#FFFFFF',
+                        cardBorder: '#E2E8F0'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-image: url('wp1897622-death-note-manga-wallpapers.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        .bg-overlay {
+            background-color: rgba(248, 250, 252, 0.92);
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body class="font-sans text-[16px] text-bodyText">
+    <div class="bg-overlay">
+        <header class="max-w-[1200px] mx-auto px-[24px]">
+            <nav class="flex justify-between items-center h-[72px]">
+                <div class="font-bold text-[20px] text-heading">Task Force HQ</div>
+
+                <ul class="hidden sm:flex space-x-6 text-[14px] font-medium text-bodyText">
+                    <li><a href="#" class="hover:text-primary transition-colors">The Suspects</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Evidence Board</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Tsugumi Ohba's House</a></li>
+                </ul>
+
+                <div class="hidden sm:block">
+                    <a href="#" class="bg-primary hover:bg-primaryHover text-white text-[14px] font-medium px-4 py-2 rounded transition-colors">Join Investigation</a>
+                </div>
+
+                <button class="block sm:hidden text-heading focus:outline-none" aria-label="Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </nav>
+        </header>
+        <main>
+            <section class="max-w-[1200px] mx-auto px-[24px] mt-[80px] min-h-[520px] flex items-center justify-center">
+                <div class="max-w-[650px] w-full text-center">
+                    <h1 class="text-[36px] sm:text-[48px] font-bold text-heading leading-[1.1]">
+                        Two Minds. One Ultimate Game of Justice.
+                    </h1>
+                    <p class="mt-[20px] text-[18px] text-bodyText leading-[1.6]">
+                        High school student Light Yagami discovers a supernatural notebook that allows him to kill anyone by writing the victim's name while picturing their face. The story follows his attempts to become a god by creating a New World cleansed of evil by using the notebook, and the complex conflict between himself and all those who try to stop or help him.                    </p>
+                    <div class="mt-[32px] flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="#" class="bg-primary hover:bg-primaryHover text-white px-6 py-3 rounded text-[16px] font-medium transition-colors inline-block text-center">
+                            Evidence(Not Found...)
+                        </a>
+                        <a href="#" class="bg-primary hover:bg-primaryHover text-white px-6 py-3 rounded text-[16px] font-medium transition-colors inline-block text-center">
+                            Rules(Does not exist...)
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section class="max-w-[1200px] mx-auto px-[24px] pb-[80px]">
+                <div class="text-center">
+                    <h2 class="text-[32px] font-bold text-heading">The Psychological War</h2>
+                </div>
+
+                <div class="mt-[48px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[24px]">
+
+                    <div class="bg-cardBg border border-cardBorder p-[24px] rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <img src="light.jpg" alt="Light Yagami" class="w-full h-48 object-contain rounded-md mb-4">
+                        <h3 class="text-[20px] font-semibold text-heading">Light Yagami</h3>
+                        <p class="mt-2 text-[16px] text-bodyText">
+                            It is not our business to debate whether Kira evil or not. That is up to the public and philosophers to decide. We've got no choice but to catch Kira. If Kira is caught, then the world will be in chaos again, but don't think about that. Good or evil... Everything depends on the results. If we catch Kira, then Kira is evil. If Kira rules the world, then Kira is good.
+                        </p>
+                    </div>
+
+                    <div class="bg-cardBg border border-cardBorder p-[24px] rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <img src="law.jpg" alt="L. Lawliet" class="w-full h-48 object-contain rounded-md mb-4">
+                        <h3 class="text-[20px] font-semibold text-heading">L. Lawliet</h3>
+                        <p class="mt-2 text-[16px] text-bodyText">
+                            Kira is childish, and he hates losing. You guessed it... I'm also childish and hate losing....
+                        </p>
+                    </div>
+
+                    <div class="bg-cardBg border border-cardBorder p-[24px] rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <img src="ryuk.jpg" alt="Ryuk" class="w-full h-48 object-contain rounded-md mb-4">
+                        <h3 class="text-[20px] font-semibold text-heading">Ryuk</h3>
+                        <p class="mt-2 text-[16px] text-bodyText">
+                            Why did I drop the DeathNote? Because I was bored, that's why.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
