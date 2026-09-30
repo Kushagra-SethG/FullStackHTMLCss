@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Analytics Dashboard</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            pageBg: '#F1F5F9',
+            sidebar: '#0F172A',
+            sidebarText: '#CBD5E1',
+            activeMenu: '#006884',
+            cardBg: '#FFFFFF',
+            heading: '#0F172A',
+            bodyText: '#64748B',
+            borderOutline: '#E2E8F0',
+            success: '#16A34A',
+            danger: '#DC2626',
+            warning: '#D97706',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-pageBg text-bodyText font-sans flex min-h-screen antialiased">
+
+  <div id="overlay" class="fixed inset-0 bg-sidebar/40 z-40 hidden md:hidden"></div>
+
+  <aside id="sidebar" class="fixed md:sticky top-0 w-[240px] h-screen bg-sidebar text-sidebarText flex flex-col shrink-0 z-50 transform -translate-x-full md:translate-x-0 transition-transform duration-300">
+    <div class="h-[64px] px-6 flex items-center text-[18px] font-bold text-white border-b border-white/10 shrink-0">
+      SaaS Admin
+    </div>
+    <nav class="p-3 flex flex-col gap-1 text-[14px] font-medium overflow-y-auto">
+      <a class="menu-item active block px-4 py-2 rounded-md cursor-pointer bg-activeMenu text-white" data-view="Overview">Overview</a>
+      <a class="menu-item block px-4 py-2 rounded-md cursor-pointer hover:bg-activeMenu hover:text-white transition-colors" data-view="Analytics">Analytics</a>
+      <a class="menu-item block px-4 py-2 rounded-md cursor-pointer hover:bg-activeMenu hover:text-white transition-colors" data-view="Users">Users</a>
+    </nav>
+  </aside>
+
+  <div class="flex-1 flex flex-col min-w-0">
+    
+    <header class="h-[64px] bg-cardBg border-b border-borderOutline flex items-center justify-between px-5 md:px-[32px] shrink-0 sticky top-0 z-30">
+      <button id="hamburger" class="block md:hidden text-heading text-2xl leading-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+      
+      <div class="flex items-center gap-2 font-semibold text-heading ml-auto">
+        <span>Kushagra Agrawal</span>
+        <div class="w-8 h-8 rounded-full bg-activeMenu text-white flex items-center justify-center text-[13px]">
+          KA
+        </div>
+      </div>
+    </header>
+
+    <main class="p-5 md:p-[32px] flex flex-col gap-[24px]">
+      
+      <h1 id="view-title" class="text-[24px] font-bold text-heading">Overview Dashboard</h1>
+
+      <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[24px]">
+        
+        <div class="bg-cardBg border border-borderOutline rounded-[12px] p-[20px]">
+          <div class="text-[28px] font-bold text-heading mb-1">₹45,231</div>
+          <div class="flex justify-between items-center text-[14px] font-medium text-bodyText">
+            <span>Total Revenue</span>
+            <span class="text-[12px] font-semibold text-success">+20%</span>
+          </div>
+        </div>
+
+        <div class="bg-cardBg border border-borderOutline rounded-[12px] p-[20px]">
+          <div class="text-[28px] font-bold text-heading mb-1">+2,350</div>
+          <div class="flex justify-between items-center text-[14px] font-medium text-bodyText">
+            <span>Subscriptions</span>
+            <span class="text-[12px] font-semibold text-success">+180%</span>
+          </div>
+        </div>
+
+        <div class="bg-cardBg border border-borderOutline rounded-[12px] p-[20px]">
+          <div class="text-[28px] font-bold text-heading mb-1">+12,234</div>
+          <div class="flex justify-between items-center text-[14px] font-medium text-bodyText">
+            <span>Sales</span>
+            <span class="text-[12px] font-semibold text-success">+19%</span>
+          </div>
+        </div>
+
+        <div class="bg-cardBg border border-borderOutline rounded-[12px] p-[20px]">
+          <div class="text-[28px] font-bold text-heading mb-1">+573</div>
+          <div class="flex justify-between items-center text-[14px] font-medium text-bodyText">
+            <span>Active Now</span>
+            <span class="text-[12px] font-semibold text-success">+4.3%</span>
+          </div>
+        </div>
+
+      </section>
+
+      <div class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-[24px]">
+        
+        <section class="bg-cardBg border border-borderOutline rounded-[12px] p-[20px] flex flex-col">
+          <h3 class="text-[16px] font-semibold text-heading mb-6">Weekly Revenue Trends</h3>
+          <div class="h-[200px] flex items-end gap-3 pb-1 border-b border-borderOutline flex-1 mt-auto">
+            <div class="flex-1 bg-activeMenu rounded-t-md relative min-h-[20px] transition-all duration-300" style="height: 40%;">
+              <span class="absolute -bottom-[22px] left-1/2 -translate-x-1/2 text-[12px] text-bodyText">M</span>
+            </div>
+            <div class="flex-1 bg-activeMenu rounded-t-md relative min-h-[20px] transition-all duration-300" style="height: 65%;">
+              <span class="absolute -bottom-[22px] left-1/2 -translate-x-1/2 text-[12px] text-bodyText">T</span>
+            </div>
+            <div class="flex-1 bg-activeMenu rounded-t-md relative min-h-[20px] transition-all duration-300" style="height: 85%;">
+              <span class="absolute -bottom-[22px] left-1/2 -translate-x-1/2 text-[12px] text-bodyText">W</span>
+            </div>
+            <div class="flex-1 bg-activeMenu rounded-t-md relative min-h-[20px] transition-all duration-300" style="height: 55%;">
+              <span class="absolute -bottom-[22px] left-1/2 -translate-x-1/2 text-[12px] text-bodyText">T</span>
+            </div>
+            <div class="flex-1 bg-activeMenu rounded-t-md relative min-h-[20px] transition-all duration-300" style="height: 95%;">
+              <span class="absolute -bottom-[22px] left-1/2 -translate-x-1/2 text-[12px] text-bodyText">F</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-cardBg border border-borderOutline rounded-[12px] p-[20px]">
+          <h3 class="text-[16px] font-semibold text-heading mb-4">Recent Orders</h3>
+          <div class="flex flex-col gap-3">
+            
+            <div class="flex justify-between items-start pb-3 border-b border-borderOutline last:border-0 last:pb-0">
+              <div>
+                <strong class="text-heading text-[14px]">#1244 — Anu Chaudhary </strong><br>
+                <span class="text-[12px] text-bodyText">Premium</span>
+              </div>
+              <span class="text-[11px] font-semibold px-2 py-1 rounded bg-green-100 text-success">Success</span>
+            </div>
+
+            <div class="flex justify-between items-start pb-3 border-b border-borderOutline last:border-0 last:pb-0">
+              <div>
+                <strong class="text-heading text-[14px]">#1344 - Aditya Gupta </strong><br>
+                <span class="text-[12px] text-bodyText">Basic</span>
+              </div>
+              <span class="text-[11px] font-semibold px-2 py-1 rounded bg-green-100 text-success">Success</span>
+            </div>
+
+            <div class="flex justify-between items-start pb-3 border-b border-borderOutline last:border-0 last:pb-0">
+              <div>
+                <strong class="text-heading text-[14px]">#1345 - Kunal Gupta</strong><br>
+                <span class="text-[12px] text-bodyText">Addon</span>
+              </div>
+              <span class="text-[11px] font-semibold px-2 py-1 rounded bg-green-100 text-success">Success</span>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-[24px]">
+        
+        <section class="bg-cardBg border border-borderOutline rounded-[12px] p-[20px]">
+          <h3 class="text-[16px] font-semibold text-heading mb-4">Traffic Overview</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-[14px]">
+              <thead>
+                <tr>
+                  <th class="p-2.5 border-b-2 border-borderOutline text-heading font-semibold">Source</th>
+                  <th class="p-2.5 border-b-2 border-borderOutline text-heading font-semibold">Visitors</th>
+                  <th class="p-2.5 border-b-2 border-borderOutline text-heading font-semibold">Rate</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="p-2.5 border-b border-borderOutline text-bodyText">Direct Web</td>
+                  <td class="p-2.5 border-b border-borderOutline text-bodyText">8,455</td>
+                  <td class="p-2.5 border-b border-borderOutline text-success font-semibold">5.2%</td>
+                </tr>
+                <tr>
+                  <td class="p-2.5 border-b border-borderOutline text-bodyText border-0">Google Search</td>
+                  <td class="p-2.5 border-b border-borderOutline text-bodyText border-0">14,444</td>
+                  <td class="p-2.5 border-b border-borderOutline text-success font-semibold border-0">4.1%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="bg-cardBg border border-borderOutline rounded-[12px] p-[20px]">
+          <h3 class="text-[16px] font-semibold text-heading mb-4">Top Selling Products</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-[14px]">
+              <thead>
+                <tr>
+                  <th class="p-2.5 border-b-2 border-borderOutline text-heading font-semibold">Product</th>
+                  <th class="p-2.5 border-b-2 border-borderOutline text-heading font-semibold">Sales</th>
+                  <th class="p-2.5 border-b-2 border-borderOutline text-heading font-semibold">Revenue</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="p-2.5 border-b border-borderOutline text-bodyText">Enterprise Pack</td>
+                  <td class="p-2.5 border-b border-borderOutline text-bodyText">2,304</td>
+                  <td class="p-2.5 border-b border-borderOutline text-heading font-semibold">₹18,050</td>
+                </tr>
+                <tr>
+                  <td class="p-2.5 border-b border-borderOutline text-bodyText border-0">Startup Bundle</td>
+                  <td class="p-2.5 border-b border-borderOutline text-bodyText border-0">963</td>
+                  <td class="p-2.5 border-b border-borderOutline text-heading font-semibold border-0">₹10,450</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    const ham = document.getElementById('hamburger');
+    const side = document.getElementById('sidebar');
+    const over = document.getElementById('overlay');
+    const items = document.querySelectorAll('.menu-item');
+    const viewTitle = document.getElementById('view-title');
+
+    function toggleMenu() {
+      side.classList.toggle('-translate-x-full');
+      over.classList.toggle('hidden');
+    }
+
+    ham.addEventListener('click', toggleMenu);
+    over.addEventListener('click', toggleMenu);
+
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        items.forEach(i => {
+          i.classList.remove('active', 'bg-activeMenu', 'text-white');
+          i.classList.add('hover:bg-activeMenu', 'hover:text-white');
+        });
+        item.classList.add('active', 'bg-activeMenu', 'text-white');
+        item.classList.remove('hover:bg-activeMenu', 'hover:text-white');
+        
+        viewTitle.textContent = item.getAttribute('data-view') + ' Dashboard';
+        
+        if (!side.classList.contains('-translate-x-full') && window.innerWidth < 768) {
+          toggleMenu();
+        }
+        
+        document.querySelectorAll('.bg-activeMenu.relative').forEach(b => {
+          b.style.height = Math.floor(Math.random() * 80 + 20) + '%';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
