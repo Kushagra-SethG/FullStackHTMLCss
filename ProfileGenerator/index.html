@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Generator</title>
+    <script src="index2.js" defer></script>
+</head>
+<body>
+    <h1>Profile Generator</h1>
+    <form id="profile-form">
+        <label for="first-name">First name:</label>
+        <input id="first-name" type="text" required>
+
+        <label for="favorite-number">Favorite number:</label>
+        <input id="favorite-number" type="number" required>
+
+        <label for="is-student">Are you a student?</label>
+        <input id="is-student" type="checkbox">
+
+        <button type="submit">Generate profile</button>
+    </form>
+    <p id="profile-result" aria-live="polite"></p>
+</body>
+</html>
